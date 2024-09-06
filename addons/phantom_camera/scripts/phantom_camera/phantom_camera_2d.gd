@@ -509,6 +509,9 @@ func _physics_process(delta: float):
 	if not _follow_target_physics_based: return
 	_process_logic(delta)
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		queue_free()
 
 func _process_logic(delta: float) -> void:
 	if not _is_active:
